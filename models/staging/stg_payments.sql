@@ -14,6 +14,5 @@ SELECT
   order_id,
   payment_method,
   amount / 100 AS amount, /* `amount` is currently stored in cents, so we convert it to dollars */
-  'new_column' AS new_column, /* non-breaking change example */
-  'new_column_v2' as new_column_v2
+  'new_column' AS new_column /* non-breaking change example */
 FROM demo.seed_raw_payments

@@ -47,3 +47,7 @@ users:
   github_username: sungchun12
   roles:
     - required_approver
+- username: afzal_sqlmesh_demo
+  github_username: afzaljasani
+  roles:
+    - required_approver
