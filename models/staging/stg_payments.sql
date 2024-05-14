@@ -17,3 +17,7 @@ SELECT
   'new_column' AS new_column, /* non-breaking change example  */
   'another_column' AS another_column
 FROM demo.seed_raw_payments
+
+-- how to generate unit test code without manually writing yaml by hand
+-- this will generate a file in the tests/ folder: test_stg_payments.yaml
+-- sqlmesh create_test demo.stg_payments --query demo.seed_raw_payments "select * from demo.seed_raw_payments limit 5" 
