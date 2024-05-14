@@ -14,8 +14,7 @@ SELECT
   order_id,
   payment_method,
   amount / 100 AS amount, /* `amount` is currently stored in cents, so we convert it to dollars */
-  'new_column' AS new_column, /* non-breaking change example  */
-  'another_column' AS another_column
+  -- 'new_column' AS new_column, /* non-breaking change example  */
 FROM demo.seed_raw_payments
 
 -- how to generate unit test code without manually writing yaml by hand

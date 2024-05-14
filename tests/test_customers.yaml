@@ -48,27 +48,22 @@ test_customers:
       order_id: 58
       payment_method: coupon
       amount: 18.0
-      new_column: new_column
     - payment_id: 27
       order_id: 24
       payment_method: coupon
       amount: 26.0
-      new_column: new_column
     - payment_id: 30
       order_id: 25
       payment_method: coupon
       amount: 16.0
-      new_column: new_column
     - payment_id: 109
       order_id: 95
       payment_method: coupon
       amount: 24.0
-      new_column: new_column
     - payment_id: 3
       order_id: 3
       payment_method: coupon
       amount: 1.0
-      new_column: new_column
   outputs:
     query:
     - customer_id: 96
