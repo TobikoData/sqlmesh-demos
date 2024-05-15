@@ -41,6 +41,9 @@ cicd_bot:
 plan:
   enable_preview: true
 
+ui:
+  format_on_save: false
+
 # list of users that are allowed to approve PRs for synchronized deployments
 users:
 - username: sung_sqlmesh_demo
