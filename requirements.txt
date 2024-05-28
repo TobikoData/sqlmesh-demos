@@ -1,4 +1,4 @@
 # psycopg2-binary==2.9.9
 sqlmesh[web,github,bigquery]==0.99.0
 pytest==8.1.1
-apache-airflow-providers-google
+apache-airflow-providers-google==10.18.0
