@@ -27,6 +27,13 @@ default_gateway: bigquery
 model_defaults:
     dialect: bigquery
 
+# airflow demo only
+default_scheduler:
+  type: airflow
+  airflow_url: http://localhost:8080
+  username: admin
+  password: admin
+
 # enables synchronized deployments to prod when a PR is merged
 cicd_bot:
     type: github
