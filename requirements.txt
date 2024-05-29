@@ -1,4 +1,4 @@
 # psycopg2-binary==2.9.9
-sqlmesh[web,github,bigquery]==0.99.0
+sqlmesh[web,github,bigquery]==0.99.0 # if I add postgres, there's a dependency conflict
 pytest==8.1.1
 apache-airflow-providers-google==10.18.0
