@@ -1,31 +1,25 @@
 gateways:
     # use this for a realistic project
-    bigquery:
+    databricks_demo:
         connection:
             concurrent_tasks: 24
-            register_comments: true
-            type: bigquery
-            method: service-account-json
-            keyfile_json: {{ env_var('GOOGLE_CREDENTIALS') }}
-            project: sqlmesh-public-demo
+            type: databricks
+            server_hostname: dbc-b9f590c4-0a08.cloud.databricks.com
+            http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2
+            access_token: {{ env_var('DATABRICKS_ACCESS_TOKEN') }}
+            catalog: catalogtest
         state_connection:
             type: postgres
             host: {{ env_var('SQLMESH_STATE_HOST') }}
             port: 5432
             user: {{ env_var('SQLMESH_STATE_USERNAME') }}
             password: {{ env_var('SQLMESH_STATE_PASSWORD') }}
-            database: sqlmesh_state_public_demo
+            database: sqlmesh_state_databricks_demo
 
-    # use this for local development and trying out SQLMesh
-    # local:
-    #     connection:
-    #         type: duckdb
-    #         database: sqlmesh-demo.db
-
-default_gateway: bigquery
+default_gateway: databricks_demo
 
 model_defaults:
-    dialect: bigquery
+    dialect: spark
 
 # enables synchronized deployments to prod when a PR is merged
 cicd_bot:
