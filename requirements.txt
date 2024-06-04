@@ -1,2 +1,3 @@
 sqlmesh[web,postgres,github,databricks]==0.101.1
 pytest==8.1.1
+pyspark==3.5.1
