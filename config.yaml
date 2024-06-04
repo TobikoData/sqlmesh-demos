@@ -15,6 +15,14 @@ gateways:
             user: {{ env_var('SQLMESH_STATE_USERNAME') }}
             password: {{ env_var('SQLMESH_STATE_PASSWORD') }}
             database: sqlmesh_state_databricks_demo
+        test_connection:
+              type: spark
+              config:
+                # Run Spark locally with one worker thread
+                "spark.master": "local"
+                # Move data under /tmp so that it is only temporarily persisted
+                "spark.sql.warehouse.dir": "/tmp/data_dir"
+                "spark.driver.extraJavaOptions": "-Dderby.system.home=/tmp/derby_dir"
 
 default_gateway: databricks_demo
 
