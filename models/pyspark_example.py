@@ -10,10 +10,6 @@ from sqlmesh import ExecutionContext, model
     "demo.pyspark_amount_by_status",
     cron="@daily",
     grain="status",
-    # audits={ # the audits don't work: Error: Macro variable 'columns' is undefined.
-    #     "UNIQUE_VALUES": {"column": ["status"]},
-    #     "NOT_NULL": {"column": ["status"]}
-    # },
     columns={
         "status": "text",
         "total_amount": "float",
