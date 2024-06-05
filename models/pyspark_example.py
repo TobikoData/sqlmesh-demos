@@ -36,4 +36,3 @@ def execute(
     return df
 
 # sqlmesh create_test demo.pyspark_amount_by_status --query demo.orders "select * from demo.orders limit 5" 
-# sqlmesh create_test demo.pyspark_amount_by_status --query demo.orders "context.spark.sql("SELECT * FROM demo.orders LIMIT 5")" 
