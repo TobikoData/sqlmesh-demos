@@ -1,2 +1,2 @@
-sqlmesh[web,postgres,github,bigquery]==0.97.0
+sqlmesh[web,postgres,github,bigquery]==0.102.2
 pytest==8.1.1
