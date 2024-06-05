@@ -1,3 +1,5 @@
 sqlmesh[web,postgres,github,databricks]==0.102.2
 pytest==8.1.1
 pyspark==3.5.1
+pandas==2.2.2
+setuptools==70.0.0

@@ -11,8 +11,8 @@ from sqlmesh import ExecutionContext, model
     cron="@daily",
     grain="status",
     # audits={ # the audits don't work: Error: Macro variable 'columns' is undefined.
-    #     "UNIQUE_VALUES": {"columns": ["status"]},
-    #     "NOT_NULL": {"columns": ["status"]}
+    #     "UNIQUE_VALUES": {"column": ["status"]},
+    #     "NOT_NULL": {"column": ["status"]}
     # },
     columns={
         "status": "text",
@@ -35,4 +35,6 @@ def execute(
     # returns the pyspark DataFrame directly, so no data is computed locally
     return df
 
-# sqlmesh create_test demo.pyspark_amount_by_status --query demo.orders "select * from demo.orders limit 5" 
+# sqlmesh create_test demo.pyspark_amount_by_status --query demo.orders "select * from demo.orders limit 5"
+# 
+# unset GOOGLE_CREDENTIALS when running this project 
