@@ -1,5 +1,10 @@
 sqlmesh[web,postgres,github,databricks]==0.102.2
 pytest==8.1.1
 pyspark==3.5.1
-pandas==2.2.2
+# pandas==2.2.2
 setuptools==70.0.0
+
+#https://pypi.org/project/databricks-connect/15.1.0.dev0/
+#https://docs.databricks.com/en/dev-tools/databricks-connect/python/index.html#requirements
+# requires 3.10 python for version 14 of databricks-connect
+databricks-connect==14.3.2

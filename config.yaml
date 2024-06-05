@@ -1,5 +1,7 @@
 gateways:
     # use this for a realistic project
+    # databricks cluter verasion: 14.3 LTS (includes Apache Spark 3.5.0, Scala 2.12)
+    # python version: 3.10.13
     databricks_demo:
         connection:
             concurrent_tasks: 24
@@ -7,7 +9,7 @@ gateways:
             server_hostname: dbc-b9f590c4-0a08.cloud.databricks.com
             http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2
             access_token: {{ env_var('DATABRICKS_ACCESS_TOKEN') }}
-            catalog: catalogtest
+            catalog: public_demo
         state_connection:
             type: postgres
             host: {{ env_var('SQLMESH_STATE_HOST') }}
@@ -15,15 +17,15 @@ gateways:
             user: {{ env_var('SQLMESH_STATE_USERNAME') }}
             password: {{ env_var('SQLMESH_STATE_PASSWORD') }}
             database: sqlmesh_state_databricks_demo
-        test_connection:
-              type: spark
-              config:
-                # install java (https://www.java.com/en/download/) and pyspark (pip install pyspark)
-                # Run Spark locally with one worker thread
-                "spark.master": "local"
-                # Move data under /tmp so that it is only temporarily persisted
-                "spark.sql.warehouse.dir": "/tmp/data_dir"
-                "spark.driver.extraJavaOptions": "-Dderby.system.home=/tmp/derby_dir"
+        # test_connection:
+        #       type: spark
+        #       config:
+        #         # install java (https://www.java.com/en/download/) and pyspark (pip install pyspark)
+        #         # Run Spark locally with one worker thread
+        #         "spark.master": "local"
+        #         # Move data under /tmp so that it is only temporarily persisted
+        #         "spark.sql.warehouse.dir": "/tmp/data_dir"
+        #         "spark.driver.extraJavaOptions": "-Dderby.system.home=/tmp/derby_dir"
 
 default_gateway: databricks_demo
 
