@@ -38,6 +38,5 @@ def execute(
     return df
 
 # sqlmesh create_test demo.pyspark_amount_by_status --query demo.orders "select * from demo.orders limit 5"
-# 
-# unset GOOGLE_CREDENTIALS when running this project 
+
 # this requires databricks connect for this pyspark dataframe to work properly
