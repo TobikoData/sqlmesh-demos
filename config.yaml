@@ -6,7 +6,7 @@ gateways:
             concurrent_tasks: 5
             register_comments: true
             keyfile_json: {{ env_var('GOOGLE_SQLMESH_CREDENTIALS') }}
-            project: tobiko-1
+            project: sqlmesh-public-demo
         state_connection:
             type: cloud
             url: https://sqlmesh-prod-enterprise-public-demo-sefz6ezt4q-uc.a.run.app

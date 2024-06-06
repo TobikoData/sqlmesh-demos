@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "tobiko_cloud_demo"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlmesh-enterprise = {version = "v0.23.1", extras = ["bigquery"]}
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.7"
+mypy = "^1.10.0"
+
+
+[[tool.poetry.source]]
+name = "sqlmesh-enterprise"
+url = "https://us-west2-python.pkg.dev/tobiko-1/sqlmesh-enterprise/simple/"
+priority = "supplemental"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
