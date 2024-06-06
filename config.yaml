@@ -5,34 +5,12 @@ gateways:
             method: service-account-json
             concurrent_tasks: 5
             register_comments: true
-            keyfile_json: {{ env_var('GOOGLE_TCLOUD_CREDENTIALS') }}
+            keyfile_json: {{ env_var('GOOGLE_SQLMESH_CREDENTIALS') }}
             project: tobiko-1
         state_connection:
             type: cloud
-              url: https://sqlmesh-prod-enterprise-public-demo-sefz6ezt4q-uc.a.run.app
+            url: https://sqlmesh-prod-enterprise-public-demo-sefz6ezt4q-uc.a.run.app
             token: {{ env_var('TCLOUD_TOKEN') }}
-    # use this for a realistic project
-    # bigquery:
-    #     connection:
-    #         concurrent_tasks: 24
-    #         register_comments: true
-    #         type: bigquery
-    #         method: service-account-json
-    #         keyfile_json: {{ env_var('GOOGLE_CREDENTIALS') }}
-    #         project: sqlmesh-public-demo
-    #     state_connection:
-    #         type: postgres
-    #         host: {{ env_var('SQLMESH_STATE_HOST') }}
-    #         port: 5432
-    #         user: {{ env_var('SQLMESH_STATE_USERNAME') }}
-    #         password: {{ env_var('SQLMESH_STATE_PASSWORD') }}
-    #         database: sqlmesh_state_public_demo
-
-    # use this for local development and trying out SQLMesh
-    # local:
-    #     connection:
-    #         type: duckdb
-    #         database: sqlmesh-demo.db
 
 default_gateway: tobiko_cloud
 
