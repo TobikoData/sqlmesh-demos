@@ -1,5 +1,5 @@
 MODEL (
-  name demo.snapshot_by_time_model,
+  name tcloud_demo.snapshot_by_time_model,
   kind SCD_TYPE_2_BY_TIME (
     unique_key id,
     updated_at_name event_date
@@ -11,4 +11,4 @@ SELECT
   item_id::INT,
   event_date::DATE
 FROM
-  demo.seed_model
+  tcloud_demo.seed_model

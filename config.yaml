@@ -10,7 +10,7 @@ gateways:
         state_connection:
             type: cloud
             url: https://sqlmesh-prod-enterprise-public-demo-sefz6ezt4q-uc.a.run.app
-            token: {{ env_var('TCLOUD_TOKEN') }}
+            token: "{{ env_var('TOBIKO_CLOUD_TOKEN') }}"
 
 default_gateway: tobiko_cloud
 

@@ -1,7 +1,7 @@
 test_example_full_model:
-  model: demo.full_model
+  model: tcloud_demo.full_model
   inputs:
-    demo.incremental_model:
+    tcloud_demo.incremental_model:
       rows:
       - id: 1
         item_id: 1
