@@ -1763,13 +1763,13 @@ files = [
 
 [[package]]
 name = "sqlglot"
-version = "24.1.3"
+version = "25.0.3"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-24.1.3-py3-none-any.whl", hash = "sha256:6a3b9d79f18f0614c894f7c62e5a2721528116f66b2edf44d8d643136c449d47"},
-    {file = "sqlglot-24.1.3.tar.gz", hash = "sha256:bd455ac228dd4dd9b6d7e5bdda212cd4c131db1ea1b90f460e44c4bb937cef0e"},
+    {file = "sqlglot-25.0.3-py3-none-any.whl", hash = "sha256:810dedc451e2d4e947effe50eeb6a5e85a6f624053086bb77d0228a45b78e0b7"},
+    {file = "sqlglot-25.0.3.tar.gz", hash = "sha256:84bddaf24e28d761ea5d3857de2bbb9515f1482799189de54f1c1e8b1bc6147c"},
 ]
 
 [package.dependencies]
@@ -1851,13 +1851,13 @@ files = [
 
 [[package]]
 name = "sqlmesh"
-version = "0.101.1"
+version = "0.103.0"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-0.101.1-py3-none-any.whl", hash = "sha256:073141b40bd32d66515db985a4d23fee70dfeb049ebedb22edd4de9a8051bb7b"},
-    {file = "sqlmesh-0.101.1.tar.gz", hash = "sha256:a8f61f29af36254688cecc1262efc575870a617b259da6239784d512a4571218"},
+    {file = "sqlmesh-0.103.0-py3-none-any.whl", hash = "sha256:58752f526057c3be345c77d979db494e65813f7494ad7cd6d52e5be3a1e6288a"},
+    {file = "sqlmesh-0.103.0.tar.gz", hash = "sha256:294f978fb1b45d385d635673525742def4d82c21dd04ad15c4e83160eefd9473"},
 ]
 
 [package.dependencies]
@@ -1877,7 +1877,7 @@ pydantic = "*"
 requests = "*"
 rich = {version = "*", extras = ["jupyter"]}
 "ruamel.yaml" = "*"
-sqlglot = {version = ">=24.1.0,<24.2.0", extras = ["rs"]}
+sqlglot = {version = ">=25.0.3,<25.1.0", extras = ["rs"]}
 
 [package.extras]
 bigquery = ["google-cloud-bigquery-storage", "google-cloud-bigquery[pandas]"]
@@ -1900,20 +1900,20 @@ web = ["fastapi (==0.110.2)", "pyarrow", "sse-starlette (>=0.2.2)", "uvicorn[sta
 
 [[package]]
 name = "sqlmesh-enterprise"
-version = "0.23.1"
+version = "0.24.0"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-enterprise-0.23.1.tar.gz", hash = "sha256:9158ee4dcffad9c4cc93e1018d23b87274e5e75d5a57e5567b70d1d297663a94"},
-    {file = "sqlmesh_enterprise-0.23.1-py3-none-any.whl", hash = "sha256:2ceb0ef1020b6a352adcb9c066803feecfb279738e8dc0cae8877625718a6623"},
+    {file = "sqlmesh-enterprise-0.24.0.tar.gz", hash = "sha256:11b25e6374ea5424e26f407cc5463d2be797b8c30e9eec3bc39cb1b547c6a891"},
+    {file = "sqlmesh_enterprise-0.24.0-py3-none-any.whl", hash = "sha256:cdfdc93ba6d0ee07dc7a44499e03eadbf267b8f81d03bcbc2a97843e37ce9de1"},
 ]
 
 [package.dependencies]
 httpx = "*"
 pydantic = ">=2.0.0"
 sqlmesh = [
-    {version = "0.101.1"},
+    {version = "0.103.0"},
     {version = "*", extras = ["bigquery"], optional = true, markers = "extra == \"bigquery\""},
 ]
 
@@ -1922,7 +1922,7 @@ bigquery = ["sqlmesh[bigquery]"]
 cicdtest = ["sqlmesh[cicdtest]"]
 databricks = ["sqlmesh[databricks]"]
 dbt = ["sqlmesh[dbt]"]
-dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.101.1)"]
+dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.103.0)"]
 gcppostgres = ["sqlmesh[gcppostgres]"]
 github = ["sqlmesh[github]"]
 llm = ["sqlmesh[llm]"]
@@ -1931,7 +1931,7 @@ mwaa = ["sqlmesh[mwaa]"]
 mysql = ["sqlmesh[mysql]"]
 postgres = ["sqlmesh[postgres]"]
 redshift = ["sqlmesh[redshift]"]
-services = ["SQLAlchemy", "fastapi", "humanize", "hyperscript (>=0.0.3,<0.1.0)", "inflect", "prometheus-fastapi-instrumentator (>=7.0.0,<7.1.0)", "python-multipart", "sentry-sdk[fastapi] (>=2.1.1,<2.2.0)", "uvicorn[standard]", "web-common"]
+services = ["SQLAlchemy", "fastapi", "humanize", "hyperscript (>=0.1.0,<0.2.0)", "inflect", "prometheus-fastapi-instrumentator (>=7.0.0,<7.1.0)", "python-multipart", "sentry-sdk[fastapi] (>=2.1.1,<2.2.0)", "uvicorn[standard]", "web-common"]
 slack = ["sqlmesh[slack]"]
 snowflake = ["sqlmesh[snowflake]"]
 trino = ["sqlmesh[trino]"]
@@ -2057,4 +2057,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a7a410b616e4ff3c8aba3f3572ab40cbed9ffc859056c49ad2db18a6ddf7b2b2"
+content-hash = "d80159afb1ecd94df528d41836f040a6ae42e0b74b3943cabdde3976427cbdd7"
