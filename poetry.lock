@@ -1992,13 +1992,13 @@ files = [
 
 [[package]]
 name = "sqlmesh"
-version = "0.103.0"
+version = "0.104.0"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-0.103.0-py3-none-any.whl", hash = "sha256:58752f526057c3be345c77d979db494e65813f7494ad7cd6d52e5be3a1e6288a"},
-    {file = "sqlmesh-0.103.0.tar.gz", hash = "sha256:294f978fb1b45d385d635673525742def4d82c21dd04ad15c4e83160eefd9473"},
+    {file = "sqlmesh-0.104.0-py3-none-any.whl", hash = "sha256:9f16b12bf7c8fe4177f1db9735eace56499d45ae9486e34600241f698b434726"},
+    {file = "sqlmesh-0.104.0.tar.gz", hash = "sha256:f92a2faa55980e054ccf2662945195cb3a06c33cfbe1c14476ca6d6a250a539c"},
 ]
 
 [package.dependencies]
@@ -2046,20 +2046,20 @@ web = ["fastapi (==0.110.2)", "pyarrow", "sse-starlette (>=0.2.2)", "uvicorn[sta
 
 [[package]]
 name = "sqlmesh-enterprise"
-version = "0.24.1"
+version = "0.25.0"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-enterprise-0.24.1.tar.gz", hash = "sha256:87f4a70c95ebd2460d451dc5260026bcd8932b8dcfdcb42a6b17a6706f45c3a0"},
-    {file = "sqlmesh_enterprise-0.24.1-py3-none-any.whl", hash = "sha256:8fbad625ba15a14d0bcc6c97efde73b3d172d2e9931d9f44ba9d6b0aac5f2f2e"},
+    {file = "sqlmesh-enterprise-0.25.0.tar.gz", hash = "sha256:92711b0122f7051dc37b8f738c097de9ef7cbba284648e93c987e80b399bd04e"},
+    {file = "sqlmesh_enterprise-0.25.0-py3-none-any.whl", hash = "sha256:4f191ad7a4693910b4044ec227d68dc4df3897381a035a8078c27c0ccec15bf3"},
 ]
 
 [package.dependencies]
 httpx = "*"
 pydantic = ">=2.0.0"
 sqlmesh = [
-    {version = "0.103.0"},
+    {version = "0.104.0"},
     {version = "*", extras = ["bigquery"], optional = true, markers = "extra == \"bigquery\""},
     {version = "*", extras = ["web"], optional = true, markers = "extra == \"web\""},
 ]
@@ -2069,7 +2069,7 @@ bigquery = ["sqlmesh[bigquery]"]
 cicdtest = ["sqlmesh[cicdtest]"]
 databricks = ["sqlmesh[databricks]"]
 dbt = ["sqlmesh[dbt]"]
-dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.103.0)"]
+dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.104.0)"]
 gcppostgres = ["sqlmesh[gcppostgres]"]
 github = ["sqlmesh[github]"]
 llm = ["sqlmesh[llm]"]
@@ -2477,4 +2477,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b4b021f610a0b829debfb189d0afbe724bbf15c420b670db208625f53d78ab80"
+content-hash = "9d75970c04210d3abebace6ae5efe1fb9cdf3a215209669f5a49828ce4deed6a"
