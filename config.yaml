@@ -1,6 +1,6 @@
 gateways:
     # use this for a realistic project
-    # databricks cluter verasion: 14.3 LTS (includes Apache Spark 3.5.0, Scala 2.12)
+    # databricks cluster verasion: 14.3 LTS (includes Apache Spark 3.5.0, Scala 2.12)
     # python version: 3.10.13
     databricks_demo:
         connection:
