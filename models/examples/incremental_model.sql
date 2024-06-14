@@ -2,7 +2,7 @@ MODEL (
   name demo.incremental_model,
   kind INCREMENTAL_BY_TIME_RANGE (
     time_column event_date,
-    lookback 1
+    -- lookback 1
   ),
   start '2020-01-01',
   cron '@daily',
