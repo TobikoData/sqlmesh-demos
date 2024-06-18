@@ -6,7 +6,7 @@ MODEL (
   columns (
     id INT64,
     item_id INT64,
-    event_date DATE
+    event_date TIMESTAMP
   ),
   grain (id, event_date)
 )
