@@ -42,17 +42,26 @@ def generate_fake_data(num_rows: int):
         data.append(row)
     return data
 
+
+def create_schema_if_not_exists(schema_name: str):
+    dbc.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
+
+
 def append_to_databricks_table(table_name: str, num_rows: int):
     # Generate 5 rows of fake data
     fake_data = generate_fake_data(num_rows)
     
     # Create a Spark DataFrame
     df = dbc.createDataFrame(fake_data, schema)
-    
+
+    # Create the schema if it doesn't exist
+    schema_name = table_name.split('.')[0] + '.' + table_name.split('.')[1]
+    create_schema_if_not_exists(schema_name)
+
     # Append the data to the Databricks catalog
     df.write.mode("append").saveAsTable(table_name)
 
-    print("5 rows of fake data appended to public_demo.raw_data.demo_events")
+    print(f"5 rows of fake data appended to {table_name}")
 
 # Call the function to append data
 append_to_databricks_table(table_name="public_demo.raw_data.demo_events", num_rows=3)
