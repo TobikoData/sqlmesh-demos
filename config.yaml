@@ -6,7 +6,7 @@ gateways:
             register_comments: true
             type: bigquery
             method: service-account-json
-            keyfile_json: {{ env_var('GOOGLE_CREDENTIALS') }}
+            keyfile_json: {{ env_var('GOOGLE_SQLMESH_CREDENTIALS') }}
             project: sqlmesh-public-demo
         state_connection:
             type: postgres
