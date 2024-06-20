@@ -8,3 +8,4 @@ setuptools==70.0.0
 #https://docs.databricks.com/en/dev-tools/databricks-connect/python/index.html#requirements
 # requires 3.10 python for version 14 of databricks-connect
 databricks-connect==14.3.2
+faker==25.6.0
