@@ -2046,13 +2046,13 @@ web = ["fastapi (==0.110.2)", "pyarrow", "sse-starlette (>=0.2.2)", "uvicorn[sta
 
 [[package]]
 name = "sqlmesh-enterprise"
-version = "0.25.0"
+version = "0.25.1"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-enterprise-0.25.0.tar.gz", hash = "sha256:92711b0122f7051dc37b8f738c097de9ef7cbba284648e93c987e80b399bd04e"},
-    {file = "sqlmesh_enterprise-0.25.0-py3-none-any.whl", hash = "sha256:4f191ad7a4693910b4044ec227d68dc4df3897381a035a8078c27c0ccec15bf3"},
+    {file = "sqlmesh-enterprise-0.25.1.tar.gz", hash = "sha256:65cdc8859f2e37216bfcddb8b76846dd7fb177f5ee726cf0fa4c8df5d8c529b0"},
+    {file = "sqlmesh_enterprise-0.25.1-py3-none-any.whl", hash = "sha256:e2ba37f17ea8550d8023d12881e1f76f8a56db119049b03939937fa9fd204a1f"},
 ]
 
 [package.dependencies]
@@ -2477,4 +2477,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "9d75970c04210d3abebace6ae5efe1fb9cdf3a215209669f5a49828ce4deed6a"
+content-hash = "a77547472bbe379dc9ae35522568a7cd0a44ed6c4fbfff3ead5e8d2c71cd8791"
