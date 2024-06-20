@@ -4,7 +4,7 @@ from pyspark.sql import Row
 from faker import Faker
 import uuid
 from datetime import datetime
-import databricks.connect
+import random
 
 # Configure Databricks Connect
 import os
@@ -23,6 +23,9 @@ dbc = DatabricksSession.builder.remote(
 
 fake = Faker()
 
+# Define the list of possible event names
+event_names = ["page_view", "product_view", "ad_view", "video_view", "blog_view"]
+
 # Define the schema for the DataFrame
 schema = StructType([
     StructField("event_id", StringType(), False),
@@ -35,7 +38,7 @@ def generate_fake_data(num_rows: int):
     data = []
     for _ in range(num_rows):
         event_id = str(uuid.uuid4())
-        event_name = fake.word()
+        event_name = random.choice(event_names)
         event_timestamp = datetime.now()
         user_id = str(uuid.uuid4())
         row = Row(event_id=event_id, event_name=event_name, event_timestamp=event_timestamp, user_id=user_id)
@@ -61,7 +64,7 @@ def append_to_databricks_table(table_name: str, num_rows: int):
     # Append the data to the Databricks catalog
     df.write.mode("append").saveAsTable(table_name)
 
-    print(f"5 rows of fake data appended to {table_name}")
+    print(f"{num_rows} rows of raw events demo data appended to {table_name}")
 
 # Call the function to append data
 append_to_databricks_table(table_name="public_demo.raw_data.demo_events", num_rows=3)
