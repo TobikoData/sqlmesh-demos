@@ -3,7 +3,7 @@ MODEL (
   kind INCREMENTAL_BY_TIME_RANGE (
     time_column event_timestamp,
     on_destructive_change error,
-    lookback 5, -- handle late arriving events for the past 5 days
+    lookback 5, -- handle late arriving events for the past 5 days based on cron interval
     forward_only true -- All changes will be forward only
   ),
   start '2024-06-17',
