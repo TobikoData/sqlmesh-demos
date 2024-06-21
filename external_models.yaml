@@ -1,0 +1,9 @@
+- name: '`public_demo`.`raw_data`.`demo_events`'
+  columns:
+    event_id: STRING
+    event_name: STRING
+    event_timestamp: TIMESTAMP
+    user_id: STRING
+  audits:
+    - name: not_null
+      columns: "[event_id]"
