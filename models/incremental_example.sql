@@ -3,11 +3,11 @@ MODEL (
   kind INCREMENTAL_BY_TIME_RANGE (
     time_column event_timestamp,
     on_destructive_change error,
-    lookback 5, -- handle late arriving events for the past 5 days based on cron interval
+    lookback 12, -- handle late arriving events for the past 60 (5*12) minutes based on cron interval
     forward_only true -- All changes will be forward only
   ),
   start '2024-06-17',
-  cron '@daily',
+  cron '*/5 * * * *',
   grain event_id,
 );
 
