@@ -3,15 +3,20 @@ MODEL (
   kind INCREMENTAL_BY_TIME_RANGE (
     time_column event_timestamp,
     on_destructive_change error,
-    lookback 12, -- handle late arriving events for the past 60 (5*12) minutes based on cron interval
+    lookback 2, -- handle late arriving events for the past 2 (2*1) days based on cron interval
     forward_only true -- All changes will be forward only
   ),
   start '2024-06-17',
-  cron '*/5 * * * *',
+  cron '@daily',
   grain event_id,
+  audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
+    event_id
+  )), NOT_NULL(columns = (
+    event_id
+  )))
 );
 
--- How to work with forward only models
+-- How to work with incremental forward only models
 -- step 1: `sqlmesh plan dev` to create this model for the first time and backfill for all of history
 -- step 2: add a new column
 -- step 3: pick a start date to backfill like: '2024-06-18'
