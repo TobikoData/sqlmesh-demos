@@ -1,6 +1,5 @@
 MODEL (
   name "demo"."snowflake_to_databricks_example",
-  -- dialect snowflake, --tells SQLMesh how to best transpile the SQL to spark, TODO: fix this with patch release
   cron '@daily',
   grain order_id,
   audits (UNIQUE_VALUES(columns = (

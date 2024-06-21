@@ -29,9 +29,9 @@ MODEL (
 SELECT
   event_id,
   event_name,
-  event_timestamp::TIMESTAMP as event_timestamp, -- removing timezone offset
+  event_timestamp,
   user_id,
-  IF(event_name = 'blog_view', 'high', 'low') AS user_intent_level, --
+  IF(event_name = 'blog_view', 'high', 'low') AS user_intent_level,
 FROM public_demo.raw_data.demo_events --external model, automatically generate yaml using command: `sqlmesh create_external_models` 
 WHERE
   event_timestamp BETWEEN @start_ts AND @end_ts -- use the correct time format: https://sqlmesh.readthedocs.io/en/stable/concepts/macros/macro_variables/#temporal-variables
