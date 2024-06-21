@@ -24,13 +24,14 @@ MODEL (
 -- step 6: `sqlmesh plan --restate-model "demo.incremental_databricks_example"`, to invoke a backfill to mirror dev's data preview
 -- step 7: pick the same backfill start date for prod as dev's above: '2024-06-18'
 -- step 8: validate changes to prod: `sqlmesh fetchdf "select * from demo.incremental_databricks_example"`
+-- Note: by default, only complete intervals are processed, so if today was 2024-06-21 and the day isn't over, it would NOT backfill the day's interval of data because it's not complete
 
 SELECT
   event_id,
   event_name,
   event_timestamp::TIMESTAMP as event_timestamp, -- removing timezone offset
   user_id,
-  IF(event_name = 'video_view', 'high', 'low') AS user_intent_level, --
+  IF(event_name = 'blog_view', 'high', 'low') AS user_intent_level, --
 FROM public_demo.raw_data.demo_events --external model, automatically generate yaml using command: `sqlmesh create_external_models` 
 WHERE
   event_timestamp BETWEEN @start_ts AND @end_ts -- use the correct time format: https://sqlmesh.readthedocs.io/en/stable/concepts/macros/macro_variables/#temporal-variables

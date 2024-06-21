@@ -15,7 +15,7 @@ select
    customer_id,
    order_date,
    status,
-   credit_card_amount::float as credit_card_amount, --SQLMesh will transpile snowflake shorthand cast syntax to Spark SQL
+   credit_card_amount::float as credit_card_amounts, --SQLMesh will transpile snowflake shorthand cast syntax to Spark SQL
    coupon_amount::float as coupon_amount,
    bank_transfer_amount::float as bank_transfer_amount,
    gift_card_amount::float as gift_card_amount,
