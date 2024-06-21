@@ -7,7 +7,7 @@ MODEL (
     forward_only true -- All changes will be forward only
   ),
   start '2024-06-17',
-  cron '*/5 * * * *',
+  cron '@daily',
   grain event_id,
 );
 
