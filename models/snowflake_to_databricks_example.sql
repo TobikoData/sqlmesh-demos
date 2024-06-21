@@ -1,6 +1,6 @@
 MODEL (
-  name demo.snowflake_to_databricks_example,
-  -- dialect snowflake, --tells SQLMesh how to best transpile the SQL to spark
+  name "demo"."snowflake_to_databricks_example",
+  -- dialect snowflake, --tells SQLMesh how to best transpile the SQL to spark, TODO: fix this with patch release
   cron '@daily',
   grain order_id,
   audits (UNIQUE_VALUES(columns = (
@@ -24,3 +24,5 @@ select
    IFF(amount > 20, 'High', 'Low') AS order_level, --snowflake function transpiles to Spark equivalent "IF"
 from
    demo.orders
+
+-- sqlmesh render demo.snowflake_to_databricks_example
