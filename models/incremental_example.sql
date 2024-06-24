@@ -1,7 +1,7 @@
 MODEL (
   name demo.incremental_databricks_example,
   kind INCREMENTAL_BY_TIME_RANGE (
-    time_column (event_timestamp, '%Y-%m-%dT%H:%M:%S'),
+    time_column (event_timestamp, '%Y-%m-%dT%H:%M:%S'), -- INSERT OVERWRITE by time column partition
     lookback 2, -- handle late arriving events for the past 2 (2*1) days based on cron interval
     forward_only true -- All changes will be forward only
   ),
