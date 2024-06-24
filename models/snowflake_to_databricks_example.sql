@@ -25,3 +25,4 @@ from
    demo.orders
 
 -- sqlmesh render demo.snowflake_to_databricks_example
+-- sqlmesh create_test demo.snowflake_to_databricks_example --query demo.orders "select * from demo.orders limit 5" 

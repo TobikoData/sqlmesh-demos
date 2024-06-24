@@ -64,4 +64,4 @@ def append_to_databricks_table(table_name: str, num_rows: int, end_date: str):
     print(f"{num_rows} rows of raw events demo data ending at {end_date} appended to {table_name}")
 
 # Call the function to append data
-append_to_databricks_table(table_name="public_demo.raw_data.demo_events", num_rows=3, end_date="2024-06-21")
+append_to_databricks_table(table_name="public_demo.raw_data.demo_events", num_rows=3, end_date="2024-06-22")
