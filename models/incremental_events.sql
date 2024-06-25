@@ -34,4 +34,16 @@ SELECT
   IF(event_name = 'blog_view', 'high', 'low') AS user_intent_level,
 FROM sqlmesh-public-demo.tcloud_raw_data.raw_events --external model, automatically generate yaml using command: `sqlmesh create_external_models`
 WHERE
-  event_timestamp BETWEEN @start_ds AND @end_ds -- use the correct time format: https://sqlmesh.readthedocs.io/en/stable/concepts/macros/macro_variables/#temporal-variables
+  event_timestamp BETWEEN @start_ds AND @end_ds; -- use the correct time format: https://sqlmesh.readthedocs.io/en/stable/concepts/macros/macro_variables/#temporal-variables
+
+
+-- track observer metrics with plain SQL
+@measure(
+  SELECT
+    event_timestamp AS ts, -- Custom measure time column `ts`
+    COUNT(*) AS daily_row_count, -- Daily row count
+    COUNT(DISTINCT event_name) AS unique_event_name_count, -- Count unique event_name values
+  FROM tcloud_demo.incremental_events
+  WHERE event_timestamp BETWEEN @start_ds AND @end_ds -- Filter measure on time
+  GROUP BY event_timestamp -- Group measure by time
+);
