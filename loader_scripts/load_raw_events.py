@@ -20,7 +20,7 @@ def generate_fake_data(num_rows: int, end_date: str):
     for i in range(num_rows):
         event_id = str(uuid.uuid4())
         event_name = random.choice(event_names)
-        event_timestamp = end_date_parsed - timedelta(days=i)
+        event_timestamp = end_date_parsed
         user_id = str(uuid.uuid4())
         row = {
             "event_id": event_id,
@@ -71,12 +71,12 @@ def append_to_bigquery_table(table_name: str, num_rows: int, end_date: str, proj
     job = client.load_table_from_dataframe(df, f"{dataset_name}.{table_name}")
     job.result()  # Wait for the job to complete
 
-    print(f"{num_rows} rows of raw events demo data ending at {end_date} appended to {dataset_name}.{table_name}")
+    print(f"{num_rows} rows of raw events demo data with date [{end_date}] appended to {dataset_name}.{table_name}")
 
 # Example usage
 append_to_bigquery_table(
     table_name="tcloud_raw_data.raw_events",
-    num_rows=50,
-    end_date="2024-06-25",
+    num_rows=5,
+    end_date="2024-06-24",
     project_id="sqlmesh-public-demo"
 )
