@@ -8,7 +8,7 @@ MODEL (
   start '2024-06-17',
   cron '@daily',
   grain event_id,
-  stamp 'test-metric',
+  stamp 'test-metrics',
   audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
     event_id
   )), NOT_NULL(columns = (
@@ -41,7 +41,7 @@ WHERE
 -- track observer metrics with plain SQL
 @measure(
   SELECT
-    event_timestamp AS ts, -- Custom measure time column `ts`
+    event_timestamp::date AS ts, -- Custom measure time column `ts`
     COUNT(*) AS daily_row_count, -- Daily row count
     COUNT(DISTINCT event_name) AS unique_event_name_count, -- Count unique event_name values
   FROM tcloud_demo.incremental_events
@@ -58,5 +58,5 @@ WHERE
       x -> COUNT(CASE WHEN event_name = x THEN 1 END) AS @{x}_count
     ),
   FROM tcloud_demo.incremental_events
-  WHERE event_timestamp BETWEEN @start_ds AND @end_ds 
+  WHERE event_timestamp::date BETWEEN @start_ds AND @end_ds 
 );
