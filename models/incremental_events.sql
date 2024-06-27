@@ -8,7 +8,7 @@ MODEL (
   start '2024-06-17',
   cron '@daily',
   grain event_id,
-  stamp 'test-metric',
+  stamp 'test-metrics',
   audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
     event_id
   )), NOT_NULL(columns = (
@@ -53,6 +53,7 @@ WHERE
 @DEF(event_names, ["page_view", "product_view", "ad_view", "video_view", "blog_view"]);
 @measure(
   SELECT
+    event_timestamp::date as ts,
     @EACH(
       @event_names,
       x -> COUNT(CASE WHEN event_name = x THEN 1 END) AS @{x}_count
