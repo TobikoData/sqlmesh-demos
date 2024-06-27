@@ -76,7 +76,7 @@ def append_to_bigquery_table(table_name: str, num_rows: int, end_date: str, proj
 # Example usage
 append_to_bigquery_table(
     table_name="tcloud_raw_data.raw_events",
-    num_rows=5,
-    end_date="2024-06-24",
+    num_rows=20,
+    end_date="2024-06-27",
     project_id="sqlmesh-public-demo"
 )

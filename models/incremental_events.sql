@@ -8,7 +8,7 @@ MODEL (
   start '2024-06-17',
   cron '@daily',
   grain event_id,
-  stamp 'test-metrics',
+  stamp 'test-metric',
   audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
     event_id
   )), NOT_NULL(columns = (
@@ -59,4 +59,5 @@ WHERE
     ),
   FROM tcloud_demo.incremental_events
   WHERE event_timestamp::date BETWEEN @start_ds AND @end_ds 
+  group by event_timestamp::date
 );
