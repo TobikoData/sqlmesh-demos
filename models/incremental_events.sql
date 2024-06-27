@@ -8,6 +8,7 @@ MODEL (
   start '2024-06-17',
   cron '@daily',
   grain event_id,
+  stamp 'test-metric',
   audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
     event_id
   )), NOT_NULL(columns = (
@@ -21,7 +22,7 @@ MODEL (
 -- step 3: pick a start date to backfill like: '2024-06-18'
 -- step 4: validate only a portion of rows were backfilled: sqlmesh fetchdf "select * from tcloud_demo__dev.incremental_events"
 -- step 5: `sqlmesh plan` to promote to prod with a virtual update, note: the dev backfill preview won't be reused for promotion and is only for dev purposes
--- step 6: `sqlmesh plan --restate-model "demo.incremental_databricks_example"`, to invoke a backfill to mirror dev's data preview
+-- step 6: sqlmesh plan --restate-model "tcloud_demo.incremental_events", to invoke a backfill to mirror dev's data preview
 -- step 7: pick the same backfill start date for prod as dev's above: '2024-06-18'
 -- step 8: validate changes to prod: sqlmesh fetchdf "select * from tcloud_demo.incremental_events"
 -- Note: by default, only complete intervals are processed, so if today was 2024-06-21 and the day isn't over, it would NOT backfill the day's interval of data because it's not complete
@@ -46,4 +47,16 @@ WHERE
   FROM tcloud_demo.incremental_events
   WHERE event_timestamp BETWEEN @start_ds AND @end_ds -- Filter measure on time
   GROUP BY event_timestamp -- Group measure by time
+);
+
+-- you can use macros to dynamically track  metrics you care about
+@DEF(event_names, ["page_view", "product_view", "ad_view", "video_view", "blog_view"]);
+@measure(
+  SELECT
+    @EACH(
+      @event_names,
+      x -> COUNT(CASE WHEN event_name = x THEN 1 END) AS @{x}_count
+    ),
+  FROM tcloud_demo.incremental_events
+  WHERE event_timestamp BETWEEN @start_ds AND @end_ds 
 );
