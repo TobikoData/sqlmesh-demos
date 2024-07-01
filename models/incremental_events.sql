@@ -8,7 +8,7 @@ MODEL (
   start '2024-06-17',
   cron '@daily',
   grain event_id,
-  stamp 'test-metrics',
+  stamp 'demo-sung', --should be unique every time
   audits (UNIQUE_VALUES(columns = ( -- data audit tests only run for the evaluated intervals
     event_id
   )), NOT_NULL(columns = (

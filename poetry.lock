@@ -2288,13 +2288,13 @@ files = [
 
 [[package]]
 name = "sqlmesh"
-version = "0.106.2"
+version = "0.107.2"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-0.106.2-py3-none-any.whl", hash = "sha256:354842f13bf673d209fc4247932afdf7134027d5770e2abb3f171767e4fa8ca2"},
-    {file = "sqlmesh-0.106.2.tar.gz", hash = "sha256:11e589d40e0b19b0407e371e70258a7e47f60689b7737072f018c52d8ceee578"},
+    {file = "sqlmesh-0.107.2-py3-none-any.whl", hash = "sha256:c1434251ed8208ae622683f80aa0099bb8e68fc9fb388d01086db840429278b5"},
+    {file = "sqlmesh-0.107.2.tar.gz", hash = "sha256:2053fbd88dd458c37cbfd2366536db8c0f54425916c5635d8b100332f28b1360"},
 ]
 
 [package.dependencies]
@@ -2316,7 +2316,7 @@ pydantic = "*"
 requests = "*"
 rich = {version = "*", extras = ["jupyter"]}
 "ruamel.yaml" = "*"
-sqlglot = {version = ">=25.3.0,<25.4.0", extras = ["rs"]}
+sqlglot = {version = ">=25.3.3,<25.4.0", extras = ["rs"]}
 sse-starlette = {version = ">=0.2.2", optional = true, markers = "extra == \"web\""}
 uvicorn = {version = "0.22.0", extras = ["standard"], optional = true, markers = "extra == \"web\""}
 watchfiles = {version = ">=0.19.0", optional = true, markers = "extra == \"web\""}
@@ -2342,13 +2342,13 @@ web = ["fastapi (==0.110.2)", "pyarrow", "sse-starlette (>=0.2.2)", "uvicorn[sta
 
 [[package]]
 name = "sqlmesh-enterprise"
-version = "0.26.0"
+version = "0.27.0"
 description = ""
 optional = false
 python-versions = "*"
 files = [
-    {file = "sqlmesh-enterprise-0.26.0.tar.gz", hash = "sha256:8a733dc0586fd61b034523eb5513160726dd4bd416c265ffa9d999d4d7bfba36"},
-    {file = "sqlmesh_enterprise-0.26.0-py3-none-any.whl", hash = "sha256:aca35e9a57308bdaf211ce182d5130a4746f97dc7f058d9ff2750e3aef5a3281"},
+    {file = "sqlmesh-enterprise-0.27.0.tar.gz", hash = "sha256:bceb9c9068760c1aed557b832b24c9a5e94ffc5c00ab0de1ea22645b90b1dd26"},
+    {file = "sqlmesh_enterprise-0.27.0-py3-none-any.whl", hash = "sha256:2f749875c065eb9411a8a07ccccb11571b2838c6768dec72983eae30ff48c977"},
 ]
 
 [package.dependencies]
@@ -2363,7 +2363,7 @@ python-multipart = {version = "*", optional = true, markers = "extra == \"servic
 sentry-sdk = {version = ">=2.1.1,<2.2.0", extras = ["fastapi"], optional = true, markers = "extra == \"services\""}
 SQLAlchemy = {version = "*", optional = true, markers = "extra == \"services\""}
 sqlmesh = [
-    {version = "0.106.2"},
+    {version = "0.107.2"},
     {version = "*", extras = ["bigquery"], optional = true, markers = "extra == \"bigquery\""},
     {version = "*", extras = ["web"], optional = true, markers = "extra == \"web\""},
 ]
@@ -2375,7 +2375,7 @@ bigquery = ["sqlmesh[bigquery]"]
 cicdtest = ["sqlmesh[cicdtest]"]
 databricks = ["sqlmesh[databricks]"]
 dbt = ["sqlmesh[dbt]"]
-dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.106.2)"]
+dev = ["psycopg", "pyinstrument", "pytest-postgresql", "ruff (>=0.4.0,<0.5.0)", "sqlmesh-tests (==0.107.2)"]
 gcppostgres = ["sqlmesh[gcppostgres]"]
 github = ["sqlmesh[github]"]
 llm = ["sqlmesh[llm]"]
@@ -2823,4 +2823,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "464f1c461767dbd0dfbc1a0971998ea8b3ed2cb422acbfa963268d0ee0566620"
+content-hash = "1400b96e2f53755923330a033efbf54b419940e73826d2ec14330dd232c5e80f"
