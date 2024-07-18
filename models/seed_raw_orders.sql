@@ -1,5 +1,5 @@
 MODEL (
-  name demo.seed_raw_orders,
+  name airflow_demo.seed_raw_orders,
   kind SEED (
     path '../seeds/raw_orders.csv'
   ),

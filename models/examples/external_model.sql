@@ -1,5 +1,5 @@
 MODEL (
-  name demo.external_model
+  name airflow_demo.external_model
 );
 
 /* run this to create the schema file from the table's metadata: sqlmesh create_external_models */

@@ -6,7 +6,7 @@ gateways:
             register_comments: true
             type: bigquery
             method: service-account-json
-            keyfile_json: {{ env_var('GOOGLE_CREDENTIALS') }}
+            keyfile_json: {{ env_var('GOOGLE_SQLMESH_CREDENTIALS') }}
             project: sqlmesh-public-demo
         state_connection:
             type: postgres
@@ -14,7 +14,7 @@ gateways:
             port: 5432
             user: {{ env_var('SQLMESH_STATE_USERNAME') }}
             password: {{ env_var('SQLMESH_STATE_PASSWORD') }}
-            database: sqlmesh_state_public_demo
+            database: sqlmesh_state_airflow_demo
 
     # use this for local development and trying out SQLMesh
     # local:
